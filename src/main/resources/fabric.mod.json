@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "lplm",
+	"version": "${version}",
+	"name": "LAN Player Limit Modifier",
+	"description": "Also known as LPLM, this mod allows you to change Minecraft's built-in LAN player limit of 8. This includes but is not limited to the Essentials Mod which when hosting, also uses this built-in limit.",
+	"authors": ["Cinnaminin"],
+	"contact": {
+		"homepage": "https://cinnaminin.dev/projects/minecraft/mods/lplm/mod.html",
+		"sources": "https://github.com/Cinnaminin/lplm/",
+		"issues": "https://github.com/Cinnaminin/lplm/issues"
+	},
+	"license": "CC BY-NC-SA 4.0",
+	"icon": "assets/lplm/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.cinnaminin.LPLM"
+		],
+		"modmenu": [
+			"dev.cinnaminin.LplmModMenu"
+		]
+	},
+	"mixins": [
+		"lplm.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": "*",
+		"cloth-config": "*"
+	}
+}
