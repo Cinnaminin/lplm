@@ -1,2 +1,4 @@
 ## LAN PLAYER LIMIT MODIFIER
-Also known as LPLM, this mod allows you to change Minecraft's built-in LAN player limit of 8. This includes but is not limited to the Essentials Mod which when hosting, also uses this built-in limit. This Mod also has ModMenu support (OPTIONAL) to configure the player limit. No other players _need_ this installed, only the host does.
+Also known as LPLM, this mod allows you to change Minecraft's built-in LAN player limit of 8.
+This mod supports the use of configuring the mod with ModMenu (ClothAPI needs to be installed)
+This mod also effects other mods such as Essentials that use the LAN feature for world hosting, meaning whatever limit is set using this mod, will also be enforced on these mods too.
