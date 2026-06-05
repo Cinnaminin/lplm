@@ -1,0 +1,36 @@
+package dev.cinnaminin.mixin;
+
+import dev.cinnaminin.lplmConfig;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.network.protocol.status.ServerStatus;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+@Mixin(MinecraftServer.class)
+public class MixinServerMetadata {
+
+    @Inject(method = "buildServerStatus", at = @At("RETURN"), cancellable = true)
+    private void lplm$fixMetadata(CallbackInfoReturnable<ServerStatus> cir) {
+        if (lplmConfig.INSTANCE == null) return;
+
+        ServerStatus old = cir.getReturnValue();
+
+        ServerStatus fixed = new ServerStatus(
+                old.description(),
+                old.players().map(p ->
+                        new ServerStatus.Players(
+                                lplmConfig.INSTANCE.maxPlayers,
+                                p.online(),
+                                p.sample()
+                        )
+                ),
+                old.version(),
+                old.favicon(),
+                old.enforcesSecureChat()
+        );
+
+        cir.setReturnValue(fixed);
+    }
+}
