@@ -4,8 +4,8 @@ import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.Text;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 
 public class LplmModMenu implements ModMenuApi {
 
@@ -17,13 +17,13 @@ public class LplmModMenu implements ModMenuApi {
     private Screen createConfigScreen(Screen parent) {
         ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)
-                .setTitle(Text.literal("LAN Player Limit Modifier"));
+                .setTitle(Component.literal("LAN Player Limit Modifier"));
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-        builder.getOrCreateCategory(Text.literal("General"))
+        builder.getOrCreateCategory(Component.literal("General"))
                 .addEntry(entryBuilder.startIntField(
-                                Text.literal("Max Players"),
+                                Component.literal("Max Players"),
                                 lplmConfig.INSTANCE.maxPlayers)
                         .setDefaultValue(8)
                         .setMin(1)
