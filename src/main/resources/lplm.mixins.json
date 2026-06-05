@@ -2,16 +2,11 @@
 	"required": true,
 	"minVersion": "0.8",
 	"package": "dev.cinnaminin.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"plugin": "dev.cinnaminin.mixin.VersionMixinPlugin",
-
+	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"MixinPlayerManager1",
-		"MixinMinecraftServer",
-		"MixinPlayerManager9",
-		"MixinServerMetadata9"
+		"MixinServerMetadata",
+		"MixinPlayerManager"
 	],
-
 	"injectors": {
 		"defaultRequire": 1
 	}
